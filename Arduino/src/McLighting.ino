@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <Hash.h>
 
 #include "definitions.h"
 
@@ -159,20 +160,20 @@ void setup() {
   // ***************************************************************************
   #ifdef ENABLE_OTA
     DBG_OUTPUT_PORT.println("Arduino OTA activated.");
-    
+
     // Port defaults to 8266
     ArduinoOTA.setPort(8266);
-  
+
     // Hostname defaults to esp8266-[ChipID]
     ArduinoOTA.setHostname(HOSTNAME);
-  
+
     // No authentication by default
     // ArduinoOTA.setPassword("admin");
-  
+
     // Password can be set with it's md5 value as well
     // MD5(admin) = 21232f297a57a5a743894a0e4a801fc3
     // ArduinoOTA.setPasswordHash("21232f297a57a5a743894a0e4a801fc3");
-  
+
     ArduinoOTA.onStart([]() {
       DBG_OUTPUT_PORT.println("Arduino OTA: Start updating");
     });
@@ -190,7 +191,7 @@ void setup() {
       else if (error == OTA_RECEIVE_ERROR) DBG_OUTPUT_PORT.println("Arduino OTA: Receive Failed");
       else if (error == OTA_END_ERROR) DBG_OUTPUT_PORT.println("Arduino OTA: End Failed");
     });
-  
+
     ArduinoOTA.begin();
     DBG_OUTPUT_PORT.println("");
   #endif
@@ -210,7 +211,7 @@ void setup() {
 
   DBG_OUTPUT_PORT.print("New users: Open http://");
   DBG_OUTPUT_PORT.print(WiFi.localIP());
-  DBG_OUTPUT_PORT.println("/upload to upload the webpages first.");  
+  DBG_OUTPUT_PORT.println("/upload to upload the webpages first.");
 
   DBG_OUTPUT_PORT.println("");
 
