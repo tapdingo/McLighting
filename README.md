@@ -8,6 +8,10 @@
 
 
 ___
+Update 16.07.2017:
+Build environment and includes now are fit for Platformio, standard
+Project supports a WemosD1 Mini
+
 Update 19.02.2017:
 Added OTA support as promised by @markbajaj. Minor other improvements.
 
